@@ -1,0 +1,60 @@
+--- fastforward-1.00/ipstreams/wvtcp.cc.orig	Thu Aug 29 14:07:47 2002
++++ fastforward-1.00/ipstreams/wvtcp.cc	Thu Aug 29 14:10:58 2002
+@@ -129,7 +129,7 @@
+ WvIPPortAddr WvTCPConn::localaddr()
+ {
+     sockaddr_in sin;
+-    size_t sl = sizeof(sin);
++    socklen_t sl = sizeof(sin);
+     
+     if (!isok() || getsockname(getfd(), (sockaddr *)&sin, &sl))
+ 	return WvIPPortAddr();
+@@ -227,7 +227,7 @@
+     
+     if (listenport.port == 0) // auto-select a port number
+     {
+-	size_t namelen = listenport.sockaddr_len();
++	socklen_t namelen = listenport.sockaddr_len();
+ 	
+ 	if (getsockname(fd, sa, &namelen) != 0)
+ 	    seterr(errno);
+@@ -262,7 +262,7 @@
+ WvTCPConn *WvTCPListener::accept()
+ {
+     struct sockaddr_in sin;
+-    size_t len = sizeof(sin);
++    socklen_t len = sizeof(sin);
+     int newfd;
+     WvTCPConn *ret;
+ 
+--- fastforward-1.00/ipstreams/wvudp.cc.orig	Thu Aug 29 14:12:08 2002
++++ fastforward-1.00/ipstreams/wvudp.cc	Thu Aug 29 14:13:02 2002
+@@ -29,7 +29,7 @@
+     delete sa;
+     
+     struct sockaddr_in nsa;
+-    size_t nsalen = sizeof(nsa);
++    socklen_t nsalen = sizeof(nsa);
+     if (getsockname(fd, (sockaddr *)&nsa, &nsalen) < 0)
+     {
+ 	seterr(errno);
+@@ -73,7 +73,7 @@
+     if (!isok() || !buf || !count) return 0;
+     
+     struct sockaddr_in from;
+-    size_t fromlen = sizeof(from);
++    socklen_t fromlen = sizeof(from);
+     int in = recvfrom(getfd(), buf, count, 0, (sockaddr *)&from, &fromlen);
+     
+     if (in >= 0)
+--- fastforward-1.00/fastforward/wvfftcp.cc.orig	Thu Aug 29 14:13:21 2002
++++ fastforward-1.00/fastforward/wvfftcp.cc	Thu Aug 29 14:14:32 2002
+@@ -36,7 +36,7 @@
+ /******************************************/
+ {
+     struct sockaddr_in sin;
+-    size_t len = sizeof( sin );
++    socklen_t len = sizeof( sin );
+     int    new_fd;
+     WvFF_TCPConn * ret;
+ 
