@@ -11,6 +11,7 @@ Source0:	http://www.worldvisions.ca/fastfwd/%{name}-%{version}.tar.gz
 Patch0:		%{name}-opt.patch
 Patch1:		%{name}-includes.patch
 URL:		http://www.worldvisions.ca/fastfwd/
+BuildRequires:	gcc-c++
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
