@@ -5,8 +5,6 @@ Version:	1.00
 Release:	2
 License:	LGPL
 Group:		Networking/Daemons
-Group(de):	Netzwerkwesen/Server
-Group(pl):	Sieciowe/Serwery
 Source0:	http://www.worldvisions.ca/fastfwd/%{name}-%{version}.tar.gz
 Patch0:		%{name}-opt.patch
 Patch1:		%{name}-includes.patch
