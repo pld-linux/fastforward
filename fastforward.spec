@@ -2,7 +2,7 @@ Summary:	Fast Forward (TCP and UDP) Proxy for Linux
 Summary(pl):	Fast Forward - proxy TCP i UDP dla Linuksa
 Name:		fastforward
 Version:	1.00
-Release:	4
+Release:	5
 License:	LGPL
 Group:		Networking/Daemons
 Source0:	http://open.nit.ca/download/%{name}-%{version}.tar.gz
@@ -10,8 +10,9 @@ Source0:	http://open.nit.ca/download/%{name}-%{version}.tar.gz
 Patch0:		%{name}-opt.patch
 Patch1:		%{name}-includes.patch
 Patch2:		%{name}-types.patch
+Patch3:		%{name}-gcc3.patch
 URL:		http://open.nit.ca/fastforward/
-BuildRequires:	gcc-c++
+BuildRequires:	libstdc++-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -37,9 +38,12 @@ forkuje siê, aby zminimalizowaæ zu¿ycie zasobów.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
 
 %build
-%{__make} COPTS="%{rpmcflags}"
+%{__make} \
+	CXX="%{__cxx}" \
+	COPTS="%{rpmcflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
