@@ -1,0 +1,35 @@
+--- fastforward-1.00/ipstreams/wvtcp.cc.orig	Fri Jan 18 12:58:14 2002
++++ fastforward-1.00/ipstreams/wvtcp.cc	Fri Jan 18 12:59:19 2002
+@@ -10,6 +10,8 @@
+ #include <netinet/ip.h>
+ #include <netinet/tcp.h>
+ #include <errno.h>
++#include <sys/types.h>
++#include <sys/socket.h>
+ 
+ WvStreamList WvTCPListener::all_listeners;
+ 
+--- fastforward-1.00/ipstreams/wvudp.cc.orig	Fri Jan 18 13:01:30 2002
++++ fastforward-1.00/ipstreams/wvudp.cc	Fri Jan 18 13:02:05 2002
+@@ -6,7 +6,8 @@
+  * See wvudp.h for details.
+  */
+ #include "wvudp.h"
+-
++#include <sys/types.h>
++#include <sys/socket.h>
+ 
+ WvUDPStream::WvUDPStream(const WvIPPortAddr &_local, const WvIPPortAddr &_rem)
+ 	: localaddr(), remaddr(_rem)
+--- fastforward-1.00/fastforward/wvfftcp.cc.orig	Fri Jan 18 13:03:32 2002
++++ fastforward-1.00/fastforward/wvfftcp.cc	Fri Jan 18 13:03:53 2002
+@@ -9,7 +9,8 @@
+ #include "wvfftcp.h"
+ 
+ #include <time.h>
+-
++#include <sys/types.h>
++#include <sys/socket.h>
+ 
+ ///////////////////////////////////////////////////////////
+ // WvFF_TCPListener stuff

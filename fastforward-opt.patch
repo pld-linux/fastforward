@@ -1,0 +1,26 @@
+--- fastforward-1.00/rules.mk.orig	Sat Apr 17 12:37:17 1999
++++ fastforward-1.00/rules.mk	Fri Jan 18 12:55:26 2002
+@@ -26,7 +26,7 @@
+ # Point to the electric fence library, assuming DEBUG=1.
+ #
+ ifeq ($(DEBUG),1)
+-EFENCE=-lefence
++EFENCE=
+ else
+ EFENCE=
+ endif
+@@ -42,13 +42,11 @@
+ ifeq ($(DEBUG),1)
+ CFLAGS += -g -Wall -DDEBUG=1
+ CXXFLAGS +=
+-LDFLAGS += -g
+ else
+-CFLAGS += -g -O6 -DDEBUG=0 -DNDEBUG
++CFLAGS += -DDEBUG=0 -DNDEBUG
+ #CFLAGS += -fomit-frame-pointer  # really evil
+ #CXXFLAGS += -fno-implement-inlines  # causes trouble with egcs 1.0
+ CXXFLAGS += -fno-rtti -fno-exceptions
+-LDFLAGS += -g
+ endif
+ 
+ 
