@@ -1,0 +1,84 @@
+--- fastforward-1.00/utils/wvbuffer.h.orig	1999-03-24 04:41:38.000000000 +0100
++++ fastforward-1.00/utils/wvbuffer.h	2004-03-28 19:32:27.546424096 +0200
+@@ -9,6 +9,7 @@
+ #ifndef __WVBUFFER_H
+ #define __WVBUFFER_H
+ 
++#include <string.h>
+ #include "wvlinklist.h"
+ 
+ class WvMiniBuffer
+--- fastforward-1.00/utils/wvlinklist.h.orig	1999-03-24 04:41:38.000000000 +0100
++++ fastforward-1.00/utils/wvlinklist.h	2004-03-28 19:33:57.858694544 +0200
+@@ -123,7 +123,7 @@
+     _newname_()						\
+ 	{ setup(); }					\
+ 							\
+-    ~##_newname_() 					\
++    ~_newname_() 					\
+ 	{ shutdown(); _zap(); }				\
+ 							\
+     void zap()						\
+--- fastforward-1.00/utils/wvhashtable.h.orig	1999-03-24 04:41:38.000000000 +0100
++++ fastforward-1.00/utils/wvhashtable.h	2004-03-28 19:36:45.473213264 +0200
+@@ -139,7 +139,7 @@
+     _type_##List *sl()							\
+ 	{ return (_type_##List *)slots; }				\
+     									\
+-    ~##_classname_()							\
++    ~_classname_()							\
+         { shutdown(); delete[] sl(); }					\
+     									\
+     void add(_type_ *data, bool auto_free)				\
+--- fastforward-1.00/streams/wvlog.h.orig	1999-03-24 04:41:37.000000000 +0100
++++ fastforward-1.00/streams/wvlog.h	2004-03-28 19:34:40.377230744 +0200
+@@ -25,7 +25,7 @@
+ // or transmits log messages.
+ class WvLogRcvBase
+ {
+-    friend WvLog;
++    friend class WvLog;
+ protected:
+     const char *appname(const WvLog *log) const;
+     virtual void log(const WvLog *source, int loglevel,
+@@ -43,7 +43,7 @@
+ // to all registered WvLogRcv's.
+ class WvLog : public WvStream
+ {
+-    friend WvLogRcvBase;
++    friend class WvLogRcvBase;
+ public:
+     enum LogLevel {
+ 	Critical = 0,
+--- fastforward-1.00/fastforward/wvffudp.h.orig	1999-03-24 04:41:36.000000000 +0100
++++ fastforward-1.00/fastforward/wvffudp.h	2004-03-28 19:37:32.864008768 +0200
+@@ -68,4 +68,4 @@
+     static Callback udp_callback2;
+ };
+ 
+-#endif __WVFFUDP_H
++#endif /* __WVFFUDP_H */
+--- fastforward-1.00/fastforward/wvfftcp.h.orig	1999-03-24 04:41:36.000000000 +0100
++++ fastforward-1.00/fastforward/wvfftcp.h	2004-03-28 19:37:41.041765560 +0200
+@@ -71,4 +71,4 @@
+ 
+ DeclareWvList( WvFF_TCPConn );
+ 
+-#endif __WVFFTCP_H
++#endif /* __WVFFTCP_H */
+--- fastforward-1.00/fastforward/wvfastfwd.h.orig	1999-03-24 04:41:36.000000000 +0100
++++ fastforward-1.00/fastforward/wvfastfwd.h	2004-03-28 19:37:52.156075928 +0200
+@@ -89,4 +89,4 @@
+     bool too_many_conns() const;
+ };
+ 
+-#endif __WVFASTFWD_H
++#endif /* __WVFASTFWD_H */
+--- fastforward-1.00/wvver.h.orig	1999-05-11 04:23:45.000000000 +0200
++++ fastforward-1.00/wvver.h	2004-03-28 19:38:22.015536600 +0200
+@@ -28,4 +28,4 @@
+ #define TUNNELV_VER		0x00019901
+ #define TUNNELV_VER_STRING	"2.0pre1"
+ 
+-#endif __WVDEFS_H
++#endif /* __WVDEFS_H */
