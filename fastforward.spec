@@ -2,12 +2,13 @@ Summary:	Fast Forward (TCP and UDP) Proxy for Linux
 Summary(pl):	Fast Forward - proxy TCP i UDP dla Linuksa
 Name:		fastforward
 Version:	1.00
-Release:	2
+Release:	3
 License:	LGPL
 Group:		Networking/Daemons
 Source0:	http://www.worldvisions.ca/fastfwd/%{name}-%{version}.tar.gz
 Patch0:		%{name}-opt.patch
 Patch1:		%{name}-includes.patch
+Patch2:		%{name}-types.patch
 URL:		http://www.worldvisions.ca/fastfwd/
 BuildRequires:	gcc-c++
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -34,6 +35,7 @@ forkuje siê, aby zminimalizowaæ zu¿ycie zasobów.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 %{__make} COPTS="%{rpmcflags}"
@@ -44,12 +46,10 @@ install -d $RPM_BUILD_ROOT%{_sbindir}
 
 install fastforward/fastforward $RPM_BUILD_ROOT%{_sbindir}
 
-gzip -9nf README
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README.gz
+%doc README
 %attr(755,root,root) %{_sbindir}/*
