@@ -6,6 +6,7 @@ Release:	4
 License:	LGPL
 Group:		Networking/Daemons
 Source0:	http://open.nit.ca/download/%{name}-%{version}.tar.gz
+# Source0-md5:	62dc7241eee4c3538d4a242be2aea435
 Patch0:		%{name}-opt.patch
 Patch1:		%{name}-includes.patch
 Patch2:		%{name}-types.patch
