@@ -1,5 +1,5 @@
 Summary:	Fast Forward (TCP and UDP) Proxy for Linux
-Summary(pl.UTF-8):   Fast Forward - proxy TCP i UDP dla Linuksa
+Summary(pl.UTF-8):	Fast Forward - proxy TCP i UDP dla Linuksa
 Name:		fastforward
 Version:	1.00
 Release:	5
