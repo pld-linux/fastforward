@@ -1,5 +1,5 @@
 Summary:	Fast Forward (TCP and UDP) Proxy for Linux
-Summary(pl):	Fast Forward - proxy TCP i UDP dla Linuksa
+Summary(pl.UTF-8):   Fast Forward - proxy TCP i UDP dla Linuksa
 Name:		fastforward
 Version:	1.00
 Release:	5
@@ -25,13 +25,13 @@ other solution we know of. It uses zero-forking technology to keep its
 resource usage to a minimum while still running faster than most other
 proxies.
 
-%description -l pl
-Fast Forward nale¿y do grupy programów znanych jako serwery proxy.
-Jego zadanie to przyjmowanie po³±czeñ TCP lub UDP na jednym adresie i
+%description -l pl.UTF-8
+Fast Forward naleÅ¼y do grupy programÃ³w znanych jako serwery proxy.
+Jego zadanie to przyjmowanie poÅ‚Ä…czeÅ„ TCP lub UDP na jednym adresie i
 porcie oraz przekazywanie ich na inny adres i port. Jest wiele
-programów realizuj±cych to samo zadanie, ale Fast Forward ma
-uproszczon± konfiguracjê, u¿ywa ma³o pamiêci i jest szybszy. Nie
-forkuje siê, aby zminimalizowaæ zu¿ycie zasobów.
+programÃ³w realizujÄ…cych to samo zadanie, ale Fast Forward ma
+uproszczonÄ… konfiguracjÄ™, uÅ¼ywa maÅ‚o pamiÄ™ci i jest szybszy. Nie
+forkuje siÄ™, aby zminimalizowaÄ‡ zuÅ¼ycie zasobÃ³w.
 
 %prep
 %setup -q
