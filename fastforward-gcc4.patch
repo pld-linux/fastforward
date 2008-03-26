@@ -1,0 +1,11 @@
+--- fastforward-1.00/streams/wvtimestream.h.orig	2008-03-26 07:49:16.203406893 +0100
++++ fastforward-1.00/streams/wvtimestream.h	2008-03-26 07:49:26.702685301 +0100
+@@ -40,7 +40,7 @@
+     virtual bool test_set(SelectInfo &si);
+     
+     // notify timestream that we have "ticked" once
+-    void WvTimeStream::tick();
++    void tick();
+     virtual void execute();
+ };
+ 
