@@ -1,12 +1,12 @@
 Summary:	Fast Forward (TCP and UDP) Proxy for Linux
 Summary(pl.UTF-8):	Fast Forward - proxy TCP i UDP dla Linuksa
 Name:		fastforward
-Version:	1.00
-Release:	5
+Version:	1.01
+Release:	0.1
 License:	LGPL
 Group:		Networking/Daemons
 Source0:	http://open.nit.ca/download/%{name}-%{version}.tar.gz
-# Source0-md5:	62dc7241eee4c3538d4a242be2aea435
+# Source0-md5:	ba8f9614b99f57b7914d32c01ea34dd3
 Patch0:		%{name}-opt.patch
 Patch1:		%{name}-includes.patch
 Patch2:		%{name}-types.patch
