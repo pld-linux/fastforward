@@ -11,6 +11,7 @@ Patch0:		%{name}-opt.patch
 Patch1:		%{name}-includes.patch
 Patch2:		%{name}-types.patch
 Patch3:		%{name}-gcc3.patch
+Patch4:		%{name}-gcc4.patch
 URL:		http://open.nit.ca/fastforward/
 BuildRequires:	libstdc++-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -39,6 +40,7 @@ forkuje się, aby zminimalizować zużycie zasobów.
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
+%patch4 -p1
 
 %build
 %{__make} \
